@@ -7,6 +7,6 @@ char foo(char c) {
 int main() {
     char c;
     c = 'f';
-    std::cout << foo(c);
+    std::cout << foo(c) << "samlpe";
     return 0;
 }
