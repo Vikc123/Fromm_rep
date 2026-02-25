@@ -37,7 +37,7 @@ void find_max(char* str) {
             token_index = 0;
             index++;
         }
-        // index++;
+
     }
     if (max_len < current_len) {
         copy_string(token, max);
@@ -54,7 +54,7 @@ char* getter () {
     char* s = new char[n];
     char ch;
     std::cout << "Enter a string: ";//я витя красавчик, а ты вита красавица
-    while ((ch = std::cin.get())!='\n' && ch != EOF) {
+    while ((ch = std::cin.get())!='\n') {
         if (i+1 >= n) {
             n = n*2;
             char *current = new char[n];
