@@ -1,8 +1,25 @@
-//
-// Created by Виктор Корнев on 26.02.2026.
-//
+#pragma once
+#include <fstream>
+#include <iostream>
 
-#ifndef FROMM_FLOW_H
-#define FROMM_FLOW_H
+void write_flow(std::string text) {
+    std::ofstream file("Lab_4/data/output.txt");
+    if (!file.is_open()) {
+        std::cerr << "Unable to open file" << std::endl;
+        return;
+    }
+    file << text;
+    file.close();
+}
 
-#endif //FROMM_FLOW_H
+std::string read_flow(std::string from) {
+    std::ifstream file(from);
+    if (!file.is_open()) {
+        std::cerr << "Unable to open file" << std::endl;
+    }
+    std::string text;
+    while (!file.eof()) {
+        std::getline(file, text);
+    }
+    return text;
+}
