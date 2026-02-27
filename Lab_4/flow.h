@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 
-void write_flow(std::string text) {
-    std::ofstream file("Lab_4/data/output.txt");
+void write_flow(std::string text, std::string filename = "Lab_4/data/encrypted.txt") {
+    std::ofstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Unable to open file" << std::endl;
         return;
