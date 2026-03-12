@@ -4,3 +4,18 @@ add_executable(4sem_Lab_1
 add_executable(4sem_Theory_STL_vector
         Theory/vector/main.cpp
 )
+add_executable(4sem_Theory_smart_pointers
+        Theory/smart_pointers/main.cpp
+)
+add_executable(4sem_Theory_list
+        Theory/list/main.cpp
+)
+add_executable(4sem_Theory_inner_class
+        Theory/inner_class/main.cpp
+)
+add_executable(4sem_Theory_binary_tree_class
+        Theory/binary_tree/main.cpp
+)
+add_executable(4sem_Theory_set_class
+        Theory/set/main.cpp
+)

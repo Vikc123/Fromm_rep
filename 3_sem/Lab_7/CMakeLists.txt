@@ -2,5 +2,8 @@ add_executable(Lab_7
         main.cpp
 )
 add_executable(Lab_7_Theory
-        Theory.cpp
+        Theory/Theory.cpp
+)
+add_executable(Lab_7_Theory_Overload
+        Theory/overload.cpp
 )

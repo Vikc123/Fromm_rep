@@ -31,8 +31,40 @@ int main() {
         cout << v[i] << " ";
     }
     cout << endl;
-    cout << v.empty();
-    v.clear();
-    cout << v.empty();
+    // cout << v.empty();
+    // v.clear();
+    // cout << v.empty();
+    for (vector<int>::iterator it = v.begin(); it < v.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    for (vector<int>::const_iterator it = v.cbegin(); it < v.cend(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    for (vector<int>::reverse_iterator it = v.rbegin(); it < v.rend(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    vector<int>::iterator it = v.begin();
+    it++;
+    v.insert(it, 10);
+    for (vector<int>::iterator it = v.begin(); it < v.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    advance(it,3);
+    v.insert(it, 10);
+    for (vector<int>::iterator it = v.begin(); it < v.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    vector<int>::iterator itErrase = v.begin();
+    itErrase++;
+    v.erase(itErrase);
+    for (vector<int>::iterator it = v.begin(); it < v.end(); it++) {
+        cout << *it << " ";
+    }
     return 0;
 }
