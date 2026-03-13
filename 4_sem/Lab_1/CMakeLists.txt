@@ -19,3 +19,6 @@ add_executable(4sem_Theory_binary_tree_class
 add_executable(4sem_Theory_set_class
         Theory/set/main.cpp
 )
+add_executable(4sem_Theory_pointer
+        Theory/pointers/main.cpp
+)
