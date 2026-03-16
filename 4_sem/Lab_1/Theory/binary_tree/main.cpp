@@ -62,6 +62,7 @@ class BinaryTree {
         if (root != nullptr) {
             self_destruct(root->left);
             delete root;
+            count--;
             self_destruct(root->right);
         }
     }
@@ -74,7 +75,6 @@ class BinaryTree {
         } else {
             return min(root->left);
         }
-
     }
     Node* max (Node* root) {
         if (root == nullptr) {
@@ -87,6 +87,41 @@ class BinaryTree {
             return max(root->right);
         }
     }
+    bool empty(Node* root) {
+        if (root == nullptr) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    Node* errase(Node* root, int data) {
+        if (root == nullptr)
+            return root;
+        if (data < root->data) {
+            root->left = errase(root->left, data);
+        }
+        else if (data > root->data) {
+            root->right = errase(root->right, data);
+        }
+        else {
+            if (root->left == nullptr) {
+                Node* temp = root->right;
+                delete root;
+                count--;
+                return temp;
+            }
+            else if (root->right == nullptr) {
+                Node* temp = root->left;
+                delete root;
+                count--;
+                return temp;
+            }
+            Node* temp = min(root->right);
+            root->data = temp->data;
+            root->right = errase(root->right, temp->data);
+        }
+        return root;
+    }
     public:
     BinaryTree() {
         root = nullptr;
@@ -96,6 +131,7 @@ class BinaryTree {
     void insert(int data) {
         root = insert(root, parent, data);
         parent = root;
+        count += 1;
     }
     void print_i() {
         inorder_traversal(root);
@@ -104,14 +140,26 @@ class BinaryTree {
         postorder_traversal(root);
     }
     int min() {
-        return min(root)->data;
+        Node* m = min(root);
+        if (m) return m->data;
+        throw runtime_error("empty tree");
     }
     int max() {
-        return max(root)->data;
+        Node* m = max(root);
+        if (m) return m->data;
+        throw runtime_error("empty tree");
     }
     int size() {
         size(root);
         return count;
+    }
+    void errase(int val) {
+        root = errase(root, val);
+    }
+    void clear() {
+        self_destruct(root);
+        root = nullptr;
+        count = 0;
     }
     ~BinaryTree() {
         self_destruct(root);
@@ -120,6 +168,7 @@ class BinaryTree {
 
 int main() {
     BinaryTree t;
+    cout << "создали дерево" << endl;
     t.insert(50);
     t.insert(30);
     t.insert(70);
@@ -131,8 +180,28 @@ int main() {
     cout << endl;
     t.print_p();
     cout << endl;
+    cout << "Минимальное значение: " << endl;
     cout << t.min() << endl;
+    cout << "Макчимальное значение: " << endl;
     cout << t.max() << endl;
+    cout << "Количество: " << endl;
     cout << t.size() << endl;
+    cout << "Удаляем элемент(80): " << endl;
+    t.errase(80);
+    t.print_p();
+    cout << endl;
+    cout << "Удаляем элемент(30): " << endl;
+    t.errase(30);
+    t.print_p();
+    cout << endl;
+    cout << "Удаляем элемент(50): " << endl;
+    t.errase(50);
+    t.print_p();
+    cout << "Очищаем полностью: " << endl;
+    t.clear();
+    t.print_i();
+    cout << "Вставляем в пустой контейнер: " << endl;
+    t.insert(40);
+    t.print_i();
     return 0;
 }

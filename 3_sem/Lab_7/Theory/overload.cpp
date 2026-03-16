@@ -85,7 +85,7 @@ int main() {
     c.display();
     c++;
     c.display();
-    // ++c<<cout << endl;
+    ++c<<cout << endl;
     cout << ++c << endl;
     return 0;
 }

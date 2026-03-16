@@ -19,16 +19,15 @@ int main() {
     }
     cout << endl;
     //тк не константный, изменим какой-нибудь элемент
-    // for (auto it = tree.begin(); it != tree.end(); it++) {
-    //     if (*it == 3) {
-    //     }
-    // }
+    for (auto it = tree.begin(); it != tree.end(); it++) {
+        if (*it == 3) {
+        }
+    }
 
     set<int>::reverse_iterator it2;
     for (it2 = tree.rbegin(); it2 != tree.rend(); it2++) {
         cout << *it2 << " ";
     }
     cout << endl;
-    tree.
     return 0;
 }
