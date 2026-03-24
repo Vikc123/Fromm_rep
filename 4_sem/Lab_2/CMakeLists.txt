@@ -4,3 +4,6 @@ add_executable(4sem_Lab_2
 add_executable(4sem_Lab_2_Theory_virtual
         Theory/virtual/main.cpp
 )
+add_executable(4sem_Lab_2_Theory_abstract_class
+        Theory/abstract_class/main.cpp
+)

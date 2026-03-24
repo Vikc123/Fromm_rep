@@ -21,7 +21,6 @@ class set {
     Node *root;
     Node *parent;
     int count;
-
     void inorder_traversal(Node* root) {
         if (root != nullptr) {
             inorder_traversal(root->left);
@@ -124,7 +123,7 @@ class set {
         return root;
     }
     public:
-    class iterator {
+    class iterator{
         private:
         Node* node;
         public:
@@ -230,7 +229,7 @@ class set {
         T& operator*() {
             return node->data;
         }
-        iterator& operator++() {
+        iterator& operator++(){
             if (node->right) {
                 node = node->right;
                 while (node->left) {
